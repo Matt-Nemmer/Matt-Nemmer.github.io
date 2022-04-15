@@ -1,0 +1,244 @@
+
+/* 
+Author: Matthew Nemmer
+Created: 2022-03-10
+*/
+
+:root 
+{
+  /* Color Variables */
+  --main-bg-color: #C0C0C0;
+  --main-text-color: black;
+  --main-text-bg-color: white;
+  
+  --primary-color: #008800;
+  --primary-dark-color: #004400;
+  --primary-light-color: #CAFFCA;
+  --primary-bg-color: #303030;
+  --primary-accent-color: #C0C0C0;
+  
+  /* Font Variables */
+  --serif-fonts: Cambria, Garamond, Times New Roman, Times, Georgia serif;
+  --sans-serif-fonts: Arial, Helvetica, Verdana, Century Gothic, sans-serif;
+  --monospace-fonts: Courier New, Courier, Andale Mono, monospace;
+  
+  --main-fonts: var(--sans-serif-fonts);
+}
+
+
+html
+{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+body 
+{
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    
+    background-color: var(--main-bg-color);
+    font-family: var(--main-fonts);
+}
+
+
+.nav-bar
+{
+    /* Flexbox */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    /* Position and sizing */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: max-content;
+    
+    /* Styling */
+    background-color: var(--primary-bg-color);
+    padding-top: 0.2vw;
+    padding-bottom: 0.2vw;
+}
+
+
+.nav-bar a
+{
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    /* Position and sizing */
+    justify-content: center;
+    align-items: center;
+    float: left;
+    min-width: 100px;
+    min-height: max-content;
+    max-height: 100px;
+    
+    /* Styling */
+    background-color: var(--primary-dark-color);
+    padding: 0.3vw;
+    border: 0.3vw solid var(--primary-color);
+    margin: 0.1vw;
+    text-decoration: none;
+}
+
+.nav-bar a div
+{    
+    /* Styling */
+    text-align: center;
+    font-size: 20px;
+    font-size: 1.2em;
+    color: #f2f2f2;
+}
+
+
+.nav-bar img
+{
+    /* Position and sizing */
+    max-width: 32px;
+    max-height: 32px;
+    max-width: 2.0em;
+    max-height: 2.0em;
+    width: 100%;
+    
+    /* Styling */
+    filter: contrast(100%);
+    filter: invert(1);
+    margin-bottom: 0.75vw;
+}
+
+
+.nav-bar a.regular-tab:hover 
+{
+    /* Styling */
+    filter: invert(1);
+    background-color: black;
+    border: 0.3vw solid var(--primary-bg-color);
+    color: white;
+}
+
+
+.nav-bar a.active-tab
+{
+    /* Styling */
+    background-color: var(--primary-color);
+    border: 0.3vw solid var(--primary-accent-color);
+    color: white;
+}
+
+
+.nav-bar a.title-tab
+{
+    /* Styling */
+    background-color: var(--primary-light-color);
+    border: 0.9vw double var(--primary-color);
+    margin-left: 0.2vw;
+    padding-left: 1.25vw;
+    padding-right: 1.25vw;
+    font-size: 44px;
+    font-size: 2.25em;
+    color: black;
+    font-family: Copperplate, Papyrus, fantasy;
+    /*font-family: 'Century Gothic';*/
+    /*font-family: 'Didot';*/
+    /*font-family: 'Cambria';*/
+    /*font-family: 'Courier New';*/
+    /*font-family: 'Brush Script MT', cursive;*/
+    font-style: italic;
+    white-space: nowrap;
+}
+
+
+.nav-bar a.settings-tab
+{
+    margin-left: auto;
+    margin-right: 0.2vw;
+}
+    
+
+#main-container
+{
+    /* Grid */
+    display: grid;
+    grid-template-columns: 80% auto;
+    grid-template-rows: 100%;
+    gap: 0.25vw;
+    
+    /* Position and sizing */
+    height: 500%;
+    width: auto;
+    
+    /* Styling */
+    margin: 0;
+    padding: 0px 0.2vw 0px 10%;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+
+#main-content
+{    
+    height: 100%;
+    margin: 0px;
+    padding: 0px 1.5vw 0px 1.5vw;
+    background-color: var(--main-text-bg-color);
+}
+
+
+#main-content h2
+{
+    margin-bottom: -0.3em;
+}
+
+
+#main-content p
+{
+    font-size: 18px;
+    margin-bottom: 0.3em;
+}
+
+
+#side-bar
+{
+    margin: 0px;
+    padding: 1vw 1.5vw 0vw 1.5vw;
+    background-color: var(--main-text-bg-color);
+}
+
+
+#side-bar .side-bar-img
+{
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 1vw;
+    
+    background-color: white;
+}
+
+
+#side-bar .side-bar-img-transparent
+{
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 1vw;
+}
+
+
+#side-bar .side-bar-clipart
+{
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 1vw;
+}
+
