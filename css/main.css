@@ -171,7 +171,7 @@ body
 {
     /* Grid */
     display: grid;
-    grid-template-columns: 80% auto;
+    grid-template-columns: 78% auto;
     grid-template-rows: 100%;
     gap: 0.25vw;
     
@@ -181,7 +181,7 @@ body
     
     /* Styling */
     margin: 0;
-    padding: 0px 0.2vw 0px 10%;
+    padding: 0px 0.2vw 0px 7%;
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
 }
@@ -206,6 +206,17 @@ body
 {
     font-size: 18px;
     margin-bottom: 0.3em;
+}
+
+
+#main-content img
+{
+    max-width: 100%;
+    object-fit: contain;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    
+    background-color: white;
 }
 
 
