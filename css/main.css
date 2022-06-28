@@ -217,6 +217,20 @@ body
     margin-bottom: 1vw;
     
     background-color: white;
+    text-decoration: none;
+}
+
+
+.social-link
+{
+    text-decoration: none;
+}
+
+
+.social-link img
+{
+    max-height: 96px;
+    max-width: 96px;
 }
 
 
