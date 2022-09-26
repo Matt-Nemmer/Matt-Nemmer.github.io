@@ -1,134 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<!--
-Author: Matthew Nemmer
-Created: 2022-03-10
--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>About Matt</title>
-
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/settings-script.js"></script>
-
-        <link rel="icon" type="image/x-icon" href="img/favicons/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
-        <link rel="manifest" href="img/favicons/site.webmanifest">
-    </head>
+    <title>About Matt Nemmer</title>
+    <meta name="description" content="View this page to learn about Matthew Nemmer's hobbies, education, and skills. Also view his contact information an social media for communicating with him.">
+    <meta name="author" content="Matthew Nemmer">
+    <meta name="keywords" content="matt, matthew, regis, nemmer, hobbies, education, skills, contact, social">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://matt-nemmer.github.io/about.html">
     
-    <body onload="applySettings()">
-        <div class="nav-bar">
-            <a class="title-tab" href="index.html">Matt's Website</a>
-            <a class="regular-tab" href="index.html">
-                <img src="img/home-icon.png" alt="Home Page Icon">
-                <div>Home</div>
-            </a>
-            <a class="regular-tab" href="projects.html">
-                <img src="img/projects-icon.png" alt="Projects Icon">
-                <div>Projects</div>
-            </a>
-            <a class="active-tab" href="about.html">
-                <img src="img/about-icon.png" alt="About Page Icon">
-                <div>About</div>
-            </a>
-            <a class="regular-tab" href="documents.html">
-                <img src="img/documents-icon.png" alt="Documents Icon">
-                <div>Documents</div>
-            </a>
-            <a class="regular-tab settings-tab" href="settings.html">
-                <img src="img/settings-icon.png" alt="Settings Icon">
-                <div>Settings</div>
-            </a>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#000000">
+
+    <link href="css/base-format.css" rel="stylesheet">
+    <link href="css/bs/bootstrap-root.css" rel="stylesheet">
+    <link href="css/bs/bootstrap-nav-navbar.css" rel="stylesheet">
+    <link href="css/bs/bootstrap-card.css" rel="stylesheet">
+  </head>
+
+  <body id="body">
+    <script src="js/settings-script.js"></script>
+    <header class="sticky-top navbar-bg">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="img/matt-logo-light.svg" alt="Matt Nemmer Logo" class="ms-md-5 me-3 navbar-logo">
+            Matt Nemmer
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mb-2 mb-md-0 me-auto">
+              <li>
+                <div class="nav-item">
+                  <a class="nav-link" href="index.html"><img src="img/home-icon.png" alt="Home icon" class="img-icon mx-2">Home</a>
+                </div>
+              </li>
+              <li>
+                <div class="nav-item">
+                  <a class="nav-link" href="portfolio.html"><img src="img/projects-icon.png" alt="Portfoliio icon" class="img-icon mx-2">Portfolio</a>
+                </div>
+              </li>
+              <li>
+                <div class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="about.html"><img src="img/about-icon.png" alt="About icon" class="img-icon mx-2">About</a>
+                </div>
+              </li>
+              <li>
+                <div class="nav-item">
+                  <a class="nav-link" href="documents.html"><img src="img/documents-icon.png" alt="Documents icon" class="img-icon mx-2">Documents</a>
+                </div>
+              </li>
+              <li>
+                <div class="nav-item">
+                  <a class="nav-link" href="settings.html"><img src="img/settings-icon.png" alt="Settings icon" class="img-icon mx-2">Settings</a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        
-        <div id="main-container">
-            <div id="main-content">
-                <h1>Matthew R. Nemmer</h1>
-                
-                <h2>Introduction</h2>
-                <p>Born in Phoenix Arizona, I have had a creative mind since I was young. 
-                    I developed a passion for engineering, math, physics, and computer science while in high school, 
-                    and my efforts yielded me a full-tuition scholarship to Northern Arizona University. There, 
-                    I continued to thrive academically while shaping into a well rounded adult.
-                    I have now graduated with a degree in computer science and am actively seeking employment.
-                </p>
-                <br><hr><br>
-                
-                <h2>Hobbies</h2>
-                <p>In my free time, I have a number of hobbies and projects to keep me busy. I enjoy snowboarding,
-                    skateboarding, tinkering with circuitry and Arduino microcontrollers, working on coding projects,
-                    going on long walks, and playing video games.
-                </p>
-                <br><hr><br>
-                
-                <h2>Skills List</h2>
-                <h3>Personal Traits</h3>
-                <p>
-                    Leadership qualities, effective communicator, time management skills, fast-learner
-                </p>
-                <br>
-                
-                <h3>Programming Languages</h3>
-                <p>
-                    Experienced:
-                    C/C++, Python, Java, HTML/CSS/JS, PHP, SQL
-                    <br>
-                    Previously Used:
-                    Racket, MATLAB
-                </p>
-                <br>
-                
-                <h3>Software Products Used</h3>
-                <p>
-                    Windows OS, Linux OS, Microsoft Office, Google Drive, GitHub, various IDEs and text editors,
-                    virtual machines, video and photo editing tools, geospatial information systems software
-                </p>
-                <br><hr><br>
-                
-                <h2>Social Platforms</h2>
-                <h3>Professional</h3>
-                <div>
-                    <a class="social-link" href="https://www.linkedin.com/in/matthew-nemmer/" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" 
-                             alt="LinkedIn" title="LinkedIn" />
-                    </a> 
-                    <a class="social-link" href="https://github.com/matt-nemmer" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" 
-                             alt="GitHub" title="GitHub" />
-                    </a> 
-                    <a class="social-link" href="https://twitter.com/nemmermatthew" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/twitter.svg" 
-                             alt="Twitter" title="Twitter" />
-                    </a>
-                    <a class="social-link" href="https://www.youtube.com/channel/UC9K5B_5mXjOXdigeVi3DdZQ" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/youtube.svg" 
-                             alt="YouTube" title="YouTube" />
-                    </a>
-                </div>
-                <h3>Personal</h3>
-                <div>
-                    <a class="social-link" href="https://www.facebook.com/mattlongboards" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" 
-                             alt="Facebpok" title="Facebook" />
-                    </a>
-                    <a class="social-link" href="https://www.instagram.com/matt_nemmer/" target="_blank">    
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg" 
-                             alt="Instagram" title="Instagram" />
-                    </a>
-                </div>
-                <br><hr><br>
-            </div>
+      </nav>
+    </header>
+
+
+    <main>
+      <div class="py-5 bg-circuitry w-100">
+
+        <div class="container">
+          <h1 class="text-white text-shadow pb-5">About Matthew Nemmer</h1>
+
+          <div class="row bg-light rounded p-3 mx-1">
+            <h2>Introduction</h2>
+            <hr>
+            <p>Born in Phoenix Arizona, I have had a creative mind since I was young. I developed a passion for engineering, math, physics, and computer science while in high school, and my efforts yielded me a full-tuition scholarship to Northern Arizona University. There, I continued to thrive academically while shaping into a well rounded adult. I have now graduated with a degree in computer science and am currently working as a web developer.</p>
+          </div>
+
+          <div class="row bg-light rounded p-3 mx-1 mt-3">
+            <h2>Hobbies</h2>
+            <hr>
+            <p>In my free time, I have a number of hobbies and projects to keep me busy. I enjoy snowboarding, skateboarding, tinkering with circuitry and Arduino microcontrollers, working on coding projects, going on long walks, and playing video games.</p>
+
+          </div>
+
+          <div class="row bg-light rounded p-3 mx-1 mt-3">
+            <h2>Education & Skills</h2>
+            <hr>
             
-            <div id="side-bar">
-                <img class="side-bar-img" src="img/nau-logo.png" alt="Northern Arizona University Logo">
-                <img class="side-bar-img-transparent" src="img/matt-headshot.png" alt="Matt's Headshot Photo" title="">
-                <img class="side-bar-img" src="img/matt-bench.jpg" alt="Matt on Bench">
+            <h4>Bachelor of Science in Computer Science</h4>
+            <p>
+              I graduated from Northern Arizona University in May 2022 with a Bachelor's degree in Computer Science.
+            </p>
+            <br>
+            
+            <h4>Personal Traits</h4>
+            <p>
+              Leadership qualities, effective communicator, time management skills, fast-learner
+            </p>
+            <br>
+
+            <h4>Programming Languages</h4>
+            <p>
+              <b>Experienced:</b>
+              C, Python, Java, HTML/CSS/JS, PHP, SQL
+              <br>
+              <b>Previously Used:</b>
+              C++, Racket, MATLAB, Twig
+            </p>
+            <br>
+
+            <h4>Software Products Used</h4>
+            <p>
+              Windows OS, Linux OS, Microsoft Office & Teams, Google Drive, GitHub, Visual Studio, NetBeans,
+             VirtualBox, WordPress, video and photo editing tools, geospatial information systems software
+            </p>
+          </div>
+
+          <div id="contact" class="row bg-light rounded p-3 mx-1 mt-3">
+            <h2>Contact</h2>
+            <hr>
+            <p><b>Phone:</b> 928-266-4890</p>
+            <p><b>Email:</b> mattnemmer1@gmail.com</p>
+          </div>
+
+
+          <div class="row bg-light rounded p-3 mx-1 mt-3">
+            <h2>Social Platforms</h2>
+            <hr>
+            <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6">
+              <div class="col">
+                <a href="https://www.linkedin.com/in/matthew-nemmer/" target="_blank">
+                  <img src="img/social-logos/linkedin.svg" class="social-logo" alt="LinkedIn" title="LinkedIn" />
+                </a> 
+              </div>
+
+              <div class="col">
+                <a href="https://github.com/matt-nemmer" target="_blank">
+                  <img src="img/social-logos/github.svg" class="social-logo" alt="GitHub" title="GitHub" />
+                </a> 
+              </div>
+
+              <div class="col">
+                <a href="https://twitter.com/matt_nemmer" target="_blank">
+                  <img src="img/social-logos/twitter.svg" class="social-logo" alt="Twitter" title="Twitter" />
+                </a>
+              </div>
+
+              <div class="col">
+                <a href="https://www.youtube.com/channel/UC9K5B_5mXjOXdigeVi3DdZQ" target="_blank">
+                  <img src="img/social-logos/youtube.svg" class="social-logo" alt="YouTube" title="YouTube" />
+                </a>
+              </div>
+
+              <div class="col">
+                <a href="https://www.facebook.com/mattnemmer1" target="_blank">
+                  <img src="img/social-logos/facebook.svg" class="social-logo" alt="Facebook" title="Facebook" />
+                </a>
+              </div>
+
+              <div class="col">
+                <a href="https://www.instagram.com/matt_nemmer/" target="_blank">    
+                  <img src="img/social-logos/instagram.svg" class="social-logo" alt="Instagram" title="Instagram" />
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </body>
+      </div>
+    </main>
+
+    <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md mb-5 ms-md-3">  
+          <a href="index.html" aria-label="Logo link to home page">
+            <img src="img/matt-logo-light.svg" alt="Matt Nemmer logo" class="footer-logo">
+          </a>
+          <br>
+          <small class="d-block text-muted mt-3">Developed by Matthew Nemmer</small>
+        </div>
+        <div class="col-6 col-md ms-md-3">
+          <h5 class="text-white">Portfolio</h5>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="portfolio.html#web-development">Web Development</a></li>
+            <li><a class="link-secondary" href="portfolio.html#stem-education">STEM Education</a></li>
+            <li><a class="link-secondary" href="portfolio.html#biomapper">Project Biomapper</a></li>
+            <li><a class="link-secondary" href="portfolio.html#graphic-design">Graphic Design</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md ms-md-3">
+          <h5 class="text-white">Other</h5>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="documents.html">Documents</a></li>
+            <li><a class="link-secondary" href="about.html">About</a></li>
+            <li><a class="link-secondary" href="about.html#contact">Contact</a></li>
+            <li><a class="link-secondary" href="settings.html">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
