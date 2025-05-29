@@ -1,0 +1,204 @@
+
+@charset "UTF-8";
+
+/* 
+/*
+    Author: Matthew Nemmer
+    Created: 2022-08-17
+    Modified: 2022-12-19
+*/
+
+
+
+/* General styling */
+:root
+{
+    --gray: #B8B8B8;
+
+    --dark-font-color: #333;
+    --light-font-color: #ccc;
+    --primary-color: #1615D5;
+    --primary-color-light: #C0D4FF;
+    --primary-color-dark: #008;
+    --secondary-color: #309A43;
+
+    --bg-light: #fff; /*#fcfdff;*/
+    --bg-dark: #212121;
+    --navbar-bg-color: rgba(31,31,31, 0.82);
+    --bg-circuitry-img-url: url("../img/bg/bg-circuitry-blue.png");
+
+    --blue-filter: invert(86%) sepia(3%) saturate(5574%) hue-rotate(187deg) brightness(99%) contrast(105%);
+    --white-hue-up-filter: invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%);
+    --black-hue-up-filter: invert(0%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%);
+    --dim-hue-down-filter: invert(35%) sepia(23%) saturate(1173%) hue-rotate(0deg) brightness(157%) contrast(101%);
+
+    --nav-tab-hover-filter: var(--blue-filter);
+    --social-logo-hover-filter: var(--blue-filter);
+    --social-logo-filter: var(--black-hue-up-filter);
+    --dark-mode-invert-filter: invert(0);
+}
+hr
+{
+    height: 2px;
+}
+.text-shadow
+{
+    text-shadow: 1.5px 1.5px 4px #000, 1.5px -1.5px 4px #000, -1.5px -1.5px 4px #000, -1.5px 1.5px 4px #000, 0px 0px 6px #000
+}
+
+
+
+/* Site header styling */
+.navbar-bg
+{
+    background-color: var(--navbar-bg-color);
+    -webkit-backdrop-filter: saturate(200%) blur(15px);
+    backdrop-filter: saturate(200%) blur(15px);
+
+    box-shadow: 0px 1.75px 2.75px var(--navbar-bg-color)
+}
+.navbar
+{
+    overflow: hidden
+}
+.nav-link
+{
+    min-height: 52px;
+    text-align: center;
+    vertical-align: middle
+}
+.nav-link .img-icon
+{
+    max-height: 0px;
+    filter: var(--dim-hue-down-filter);
+    transition: max-height 1s ease-in-out, filter .75s ease-in-out,
+        background-color .15s ease-in-out, border-color .15s ease-in-out
+}
+.nav-link.active .img-icon
+{
+    filter: var(--nav-tab-hover-filter);
+    max-height: 32px
+}
+.nav-link:hover .img-icon
+{
+    /*transition: filter .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;*/
+    filter: var(--nav-tab-hover-filter);
+    transition: max-height .15s ease-in-out, filter .15s ease-in-out,
+        background-color .15s ease-in-out, border-color .15s ease-in-out;
+    max-height: 32px
+}
+.rtl
+{
+    direction: rtl
+}
+
+
+
+/* Image styling */
+img, .svg
+{
+    vertical-align: middle
+}
+.carousel
+{
+    box-shadow: 0px -22px 12px #444
+}
+.img-carousel
+{
+    object-fit: cover
+}
+.img-album
+{
+    object-fit: contain;
+    max-height: 140px;
+    max-width: 200px;
+    height: 140px;
+    margin: auto
+}
+.img-icon
+{
+    height: 32px;
+    width: 32px
+}
+.navbar-logo
+{
+    vertical-align: middle;
+    max-height: 40px;
+    max-height: calc( 24px + 1.75vw )
+}
+.footer-logo
+{
+    vertical-align: middle;
+    max-height: 50px
+}
+.img-content
+{
+    height: 100%;
+    width: 100%;
+    max-height: 275px;
+    object-fit: cover
+}
+.img-content-large
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover
+}
+.img-logo
+{
+    height: 100%;
+    width: 100%;
+    max-height: calc( 100px + 6vw );
+    object-fit: contain
+}
+.img-grayscale
+{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+.social-logo
+{
+    margin: 1rem 0px;
+    width: 100%;
+    height: auto;
+    max-height: 64px;
+    filter: var(--social-logo-filter);
+    transition: filter .75s ease-in-out
+}
+.social-logo:hover
+{
+    filter: var(--social-logo-hover-filter);
+    transition: filter .15s ease-in-out
+}
+.img-dark-mode-invert
+{
+    filter: var(--dark-mode-invert-filter)
+}
+
+
+/* Background and shadow styling */
+.bg-primary
+{
+    background-color: var(--primary-color)
+}
+.bg-primary-dark{
+    background-color: var(--primary-color-dark)
+}
+.bg-secondary
+{
+    background-color: var(--secondary-color)
+}
+.bg-light
+{
+    background-color: var(--bg-light)
+}
+.bg-dark
+{
+    background-color: var(--bg-dark)
+}
+.bg-circuitry
+{
+    background-image: var(--bg-circuitry-img-url);
+    background-color: #333;
+    background-repeat: repeat
+}
