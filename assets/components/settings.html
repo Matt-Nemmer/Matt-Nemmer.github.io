@@ -1,0 +1,48 @@
+<template>
+    <div id="settings-template" class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
+        <form id="settings-form" name="settingsForm" class="col p-4" autocomplete="off" method="post">
+            <fieldset>
+                <div><strong>Dark mode:</strong></div>
+                <label class="ms-3"><input type="radio" name="darkMode" value="darkMode"> ON</label>
+                <label class="ms-3"><input type="radio" name="darkMode" value="regularMode" checked> OFF</label>
+            </fieldset>
+
+            <fieldset>
+                <div><strong>Font type:</strong></div>
+                <label class="ms-3"><input type="radio" name="fontType" value="sansSerif" checked> Sans Serif</label>
+                <label class="ms-3"><input type="radio" name="fontType" value="serif"> Serif</label>
+                <label class="ms-3"><input type="radio" name="fontType" value="monospace"> Monospace</label>
+            </fieldset>
+
+            <div>
+                <div><label for="primaryColor"><strong>Primary color:</strong></label></div>
+                <select name="primaryColor" id="primaryColor" class="my-2 ms-3">
+                    <option value="random" selected>Random</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="teal">Teal</option>
+                    <option value="purple">Purple</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="brown">Brown</option>
+                    <option value="black">Black</option>
+                </select>
+            </div>
+
+            <button class="btn btn-outline-primary reset-btn mt-2" type="button">Reset</button>
+        </form>
+
+        <div class="col p-4">
+            <div id="current-values">
+                <strong>Current values:</strong>
+            </div>
+            <br>
+            <div id="current-colors">
+                <span class="p-3 text-black" style="background-color: var(--primary-color-light)">&nbsp;</span>
+                <span class="p-3 text-black" style="background-color: var(--primary-color)">&nbsp;</span>
+                <span class="p-3 text-white" style="background-color: var(--primary-color-dark)">&nbsp;</span>
+            </div>
+        </div>
+    </div>
+</template>

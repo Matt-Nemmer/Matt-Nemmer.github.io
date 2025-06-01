@@ -1,20 +1,74 @@
 <!doctype html>
 
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Matt Nemmer's Website</title>
-    <meta name="description" content="Personal website for Matthew Nemmer: web developer, entrepreneur, engineer, and problem-solver. Learn more about him and his work through this site.">
-    <meta name="author" content="Matthew Nemmer">
-    <meta name="keywords" content="matthew nemmer, home page">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://matt-nemmer.github.io/">
-  </head>
+        <title>Matt Nemmer's Website</title>
+        <meta name="description" content="Personal website for Matthew Nemmer: a web developer, entrepreneur, engineer, and problem-solver. Learn more about him and his work through this site.">
+        <link rel="canonical" href="https://matt-nemmer.github.io/">
 
-  <body>
-    <h1>Site under maintenance</h1>
-    <p>Check back later</p>
-  </body>
+        <link href="assets/css/base-format.css" rel="stylesheet">
+        <link href="assets/css/bs/bootstrap-root.css" rel="stylesheet">
+        <link href="assets/css/bs/bootstrap-nav-navbar.css" rel="stylesheet">
+        <link href="assets/css/bs/bootstrap-carousel.css" rel="stylesheet">
+        <link href="assets/css/bs/bootstrap-card.css" rel="stylesheet">
+        <link href="assets/css/bs/bootstrap-btn-dropdown.css" rel="stylesheet">
+
+        <script src="assets/js/templater.js"></script>
+        <script src="assets/js/site-settings.js"></script>
+        <script src="assets/js/header.js"></script>
+        <script>
+        </script>
+    </head>
+
+    <body id="body">
+        <!-- HEADER -->
+        <script>insertComponent('header').then(initializeHeader);</script>
+
+        <main>
+            <section id="home" class="nav-target">
+                <!-- CAROUSEL -->
+                <script>insertComponent('carousel');</script>
+            </section>
+
+            <div class="py-5 bg-circuitry w-100">
+                <div class="container w-100">
+                    <section id="about" class="nav-target row bg-light rounded p-3 mx-1">
+                        <h2>About Matt</h2>
+                        <hr class="section-hr">
+                        <!-- ABOUT -->
+                        <script>insertComponent('about');</script>
+                    </section>
+
+                    <section id="portfolio" class="nav-target row bg-light rounded p-3 mx-1 mt-5">
+                        <h2>Matt's Portfolio</h2>
+                        <hr class="section-hr">
+                        <!-- PORTFOLIO -->
+                        <script>insertComponent('portfolio');</script>
+                    </section>
+
+                    <section id="settings" class="nav-target row bg-light rounded p-3 mx-1 mt-5">
+                        <h2>Site settings</h2>
+                        <hr class="section-hr">
+                        <!-- SETTINGS -->
+                        <script>insertComponent('settings').then(initializeSettingsForm);</script>
+                    </section>
+                    
+                    <section class="row bg-light rounded p-3 mx-1 mt-5">
+                        <h2>Matt's social media</h2>
+                        <hr class="section-hr">
+                        <!-- SOCIAL -->
+                        <script>insertComponent('social');</script>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <script>insertComponent('footer');</script>
+
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
