@@ -1,0 +1,62 @@
+<template>
+    <div id="gallery-template">
+        <div id="carousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="fade-bottom-black">
+                        <img src="assets/img/matt-cstl-office-cropped.JPG" alt="Matt sitting in a cubicle" class="d-block w-100 img-carousel carousel-item-img" aria-label="Matt sitting in his office">
+                    </div>
+
+                    <div class="carousel-caption d-block text-shadow mt-3">
+                        <h1 class="fs-2">Welcome to my website</h1>
+                        <p>Read about my projects, experiences, hobbies, skills, and more.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="fade-bottom-black">
+                        <img src="assets/img/nau-scenic-view.jfif" alt="Scenic view of Northern Arizona University's Flagstaff campus" class="d-block w-100 img-carousel carousel-item-img" aria-label="Scenic view of Northern Arizona University's Flagstaff campus">
+                    </div>
+                    <div class="carousel-caption d-block text-shadow mt-3">
+                        <p class="fs-2">B.S. in Computer Science</p>
+                        <p>I earned my degree at Northern Arizona University.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="fade-bottom-black">
+                        <img src="assets/img/sedona-desert.webp" alt="Mountains in Sedona, Arizona" class="d-block w-100 img-carousel carousel-item-img" aria-label="Mountains in Sedona">
+                    </div>
+                    <div class="carousel-caption d-block text-shadow mt-3">
+                        <p class="fs-2">Arizona Local</p>
+                        <p>I am currently living and working in Flagstaff, AZ.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="fade-bottom-black">
+                        <img src="assets/img/matt-skateboards-cropped.jpg" alt="Many skateboards and longboards" class="d-block w-100 img-carousel carousel-item-img" aria-label="Many skateboards and longboards">
+                    </div>
+                    <div class="carousel-caption d-block text-shadow mt-3">
+                        <p class="fs-2">My Hobbies</p>
+                        <p>When I'm not busy designing software, I like to snowboard and skateboard.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</template>
