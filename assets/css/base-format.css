@@ -1,12 +1,11 @@
-
 @charset "UTF-8";
-
-/* 
 /*
-    Author: Matthew Nemmer
-    Created: 2022-08-17
-    Modified: 2025-05-30
+Author: Matthew Nemmer
+Created: 2022-08-17
+Modified: 2025-06-05
 */
+
+
 
 
 
@@ -25,7 +24,7 @@
     --bg-light: #fff; /*#fcfdff;*/
     --bg-dark: #212121;
     --navbar-bg-color: rgba(31,31,31, 0.82);
-    --bg-circuitry-img-url: url("../img/bg/bg-circuitry-blue.png");
+    --bg-container-img-url: url("../img/bg/bg-circuitry-blue.png");
 
     --blue-filter: invert(86%) sepia(3%) saturate(5574%) hue-rotate(187deg) brightness(99%) contrast(105%);
     --white-hue-up-filter: invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%);
@@ -47,7 +46,6 @@ hr
 hr.section-hr{
     border: none; 
     height: 4px;
-    /*background: linear-gradient(to right, var(--primary-color-dark), var(--primary-color-light));*/
     background-color: var(--primary-color);
     transition: background-color 0.75s ease-in-out;
 }
@@ -64,6 +62,10 @@ hr.section-hr{
         5px 5px 10px rgba(0, 0, 0, 0.8),
         5px 5px 12px rgba(0, 0, 0, 0.8);
 }
+
+
+
+
 
 /* Site header styling */
 .navbar-bg
@@ -98,7 +100,6 @@ hr.section-hr{
 }
 .nav-link:hover .img-icon
 {
-    /*transition: filter .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;*/
     filter: var(--nav-tab-hover-filter);
     transition: max-height .15s ease-in-out, filter .15s ease-in-out,
         background-color .15s ease-in-out, border-color .15s ease-in-out;
@@ -111,11 +112,61 @@ hr.section-hr{
 
 
 
+
+
+/* Background and shadow styling */
+.bg-primary
+{
+    background-color: var(--primary-color)
+}
+.bg-primary-dark{
+    background-color: var(--primary-color-dark)
+}
+.bg-secondary
+{
+    background-color: var(--secondary-color)
+}
+.bg-light
+{
+    background-color: var(--bg-light)
+}
+.bg-dark
+{
+    background-color: var(--bg-dark)
+}
+
+/* Background for card-sections */
+.bg-container {
+  position: relative;
+  overflow: hidden;
+}
+.bg-container > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    var(--bg-container-img-url);
+  background-repeat: repeat;
+  background-blend-mode: normal;
+  transition: opacity 0.75s ease;
+  z-index: 0;
+}
+
+
+
+
+
 /* Image styling */
 img, .svg
 {
     vertical-align: middle
 }
+
 .carousel
 {
     box-shadow: 0px -22px 12px #444
@@ -191,37 +242,6 @@ img, .svg
 {
     filter: var(--dark-mode-invert-filter)
 }
-
-
-/* Background and shadow styling */
-.bg-primary
-{
-    background-color: var(--primary-color)
-}
-.bg-primary-dark{
-    background-color: var(--primary-color-dark)
-}
-.bg-secondary
-{
-    background-color: var(--secondary-color)
-}
-.bg-light
-{
-    background-color: var(--bg-light)
-}
-.bg-dark
-{
-    background-color: var(--bg-dark)
-}
-.bg-circuitry
-{
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        var(--bg-circuitry-img-url);
-    background-repeat: repeat;
-    background-blend-mode: normal; 
-}
-
 .vignette {
     width: 100%;
     position: relative;
@@ -233,10 +253,9 @@ img, .svg
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* allows clicks to pass through */
+    pointer-events: none;
     background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
 }
-
 .fade-bottom-black {
     width: 100%;
     position: relative;
@@ -252,6 +271,10 @@ img, .svg
     pointer-events: none;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%);
 }
+
+
+
+
 
 /* Settings form styling */
 #settings-form{

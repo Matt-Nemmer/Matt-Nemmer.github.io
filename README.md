@@ -5,13 +5,12 @@ This repository contains Matt Nemmer's personal website, which is currently bein
 Development has been ongoing for many years, and several versions have been published:
 - v1: Simple, old-fashioned looking site.
 - v2: Much more marketing oriented, with a modernized layout and various animations. Features updated content and major improvements in terms of user experience. Relies on Bootstrap for styling.
-- v3: Work in-progress. Will be a simplified version with fewer pages to start, but more content on each. Maybe even a single-page application, or I could use Node.js/Eleventy to generate static files. Will probably include a blog this time. Not sure yet.
+- v3: A simplified v2, implemented as a single-page application. Relies on a basic front-end JavaScript templating system to add sections to the page. Site settings now automatically apply upon making changes.
 
-The site makes use of cookies for storing user settings and the Bootstrap framework for styling.
+The site uses cookies for storing settings and the Bootstrap framework for styling.
 
 # About
-
-Matt Nemmer is a software engineer and website developer living in Arizona.
+Learn more about me here:
 [matt-nemmer.github.io](https://matt-nemmer.github.io/)
 
 ![Matt Nemmer Logo](img/matt-logo-light.svg)

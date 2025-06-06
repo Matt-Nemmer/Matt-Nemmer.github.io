@@ -1,12 +1,93 @@
 /*
  Author: Matthew Nemmer
  Created: 2025-05-29
- Modified: 2025-05-29
+ Modified: 2025-06-05
  */
 
-
+// Global vars and constants
+const root = document.documentElement;
+const themes = {
+    blue: {
+        color: "#1918D8",
+        dark: "#009",
+        light: "#B8D2FF",
+        navFilter: "invert(80%) sepia(3%) saturate(5574%) hue-rotate(187deg) brightness(99%) contrast(100%)",
+        socialFilter: "invert(66%) sepia(3%) saturate(5574%) hue-rotate(187deg) brightness(99%) contrast(100%)",
+        bg: "../img/bg/bg-circuitry-blue.png"
+    },
+    green: {
+        color: "#0FC80F",
+        dark: "#080",
+        light: "#80FF98",
+        navFilter: "invert(75%) sepia(69%) saturate(326%) hue-rotate(69deg) brightness(103%) contrast(101%)",
+        socialFilter: "invert(65%) sepia(69%) saturate(326%) hue-rotate(69deg) brightness(103%) contrast(101%)",
+        bg: "../img/bg/bg-circuitry-green.png"
+    },
+    teal: {
+        color: "#15A5A5",
+        dark: "#066",
+        light: "#80FFFF",
+        navFilter: "invert(93%) sepia(26%) saturate(1930%) hue-rotate(149deg) brightness(101%) contrast(104%)",
+        socialFilter: "invert(85%) sepia(26%) saturate(1930%) hue-rotate(149deg) brightness(101%) contrast(104%)",
+        bg: "../img/bg/bg-circuitry-teal.png"
+    },
+    purple: {
+        color: "#A716D5",
+        dark: "#507",
+        light: "#BCA0FF",
+        navFilter: "invert(65%) sepia(37%) saturate(1399%) hue-rotate(209deg) brightness(104%) contrast(101%)",
+        socialFilter: "invert(58%) sepia(37%) saturate(1399%) hue-rotate(209deg) brightness(104%) contrast(101%)",
+        bg: "../img/bg/bg-circuitry-purple.png"
+    },
+    red: {
+        color: "#D51615",
+        dark: "#800",
+        light: "#FF8768",
+        navFilter: "invert(77%) sepia(26%) saturate(4386%) hue-rotate(313deg) brightness(101%) contrast(101%)",
+        socialFilter: "invert(21%) sepia(95%) saturate(3285%) hue-rotate(352deg) brightness(84%) contrast(99%)",
+        bg: "../img/bg/bg-circuitry-red.png"
+    },
+    yellow: {
+        color: "#C5B505",
+        dark: "#B0A004",
+        light: "#F0F080",
+        navFilter: "invert(86%) sepia(45%) saturate(421%) hue-rotate(7deg) brightness(104%) contrast(91%)",
+        socialFilter: "invert(75%) sepia(26%) saturate(2402%) hue-rotate(11deg) brightness(95%) contrast(93%)",
+        bg: "../img/bg/bg-circuitry-yellow.png"
+    },
+    orange: {
+        color: "#F0A015",
+        dark: "#B60",
+        light: "#FFAA70",
+        navFilter: "invert(69%) sepia(38%) saturate(627%) hue-rotate(333deg) brightness(101%) contrast(102%)",
+        socialFilter: "invert(80%) sepia(26%) saturate(7208%) hue-rotate(356deg) brightness(101%) contrast(88%)",
+        bg: "../img/bg/bg-circuitry-orange.png"
+    },
+    brown: {
+        color: "#805515",
+        dark: "#3A2505",
+        light: "#A08A50",
+        navFilter: "invert(57%) sepia(12%) saturate(1337%) hue-rotate(6deg) brightness(94%) contrast(90%)",
+        socialFilter: "invert(32%) sepia(86%) saturate(421%) hue-rotate(357deg) brightness(90%) contrast(95%)",
+        bg: "../img/bg/bg-circuitry-brown.png"
+    },
+    black: {
+        color: "#686868",
+        dark: "#444",
+        light: "#E6E6E6",
+        navFilter: "invert(100%) sepia(0%) saturate(5932%) hue-rotate(317deg) brightness(116%) contrast(82%)",
+        socialFilter: "invert(68%) sepia(0%) saturate(16%) hue-rotate(268deg) brightness(78%) contrast(90%)",
+        bg: "../img/bg/bg-circuitry-black.png"
+    }
+};
 
  
+
+
+
+
+
+
 
  // Cookies utilities
 function getCookie(name){
@@ -35,6 +116,10 @@ function putCookies(){
 
 
 
+
+
+
+
 // Applying settings
 function randInt( min, max ){
     return Math.floor( Math.random() * (max - min) ) + min;
@@ -45,21 +130,20 @@ function applySettings(){
     const fontTypeCookie = getCookie("fontType");
     let primaryColorCookie = getCookie("primaryColor");
 
-    const root = document.documentElement;
     if (fontTypeCookie != null){
         if (fontTypeCookie == "serif"){
             root.style.setProperty('--bs-body-font-family',
-                    getComputedStyle(document.documentElement)
+                    getComputedStyle(root)
                     .getPropertyValue('--bs-font-serif'));
         } 
         else if (fontTypeCookie == "sansSerif"){
             root.style.setProperty('--bs-body-font-family',
-                    getComputedStyle(document.documentElement)
+                    getComputedStyle(root)
                     .getPropertyValue('--bs-font-sans-serif'));
         } 
         else if (fontTypeCookie == "monospace"){
             root.style.setProperty('--bs-body-font-family',
-                    getComputedStyle(document.documentElement)
+                    getComputedStyle(root)
                     .getPropertyValue('--bs-font-monospace'));
         }
     }
@@ -103,77 +187,14 @@ function applySettings(){
         }
     }
 
-    if (primaryColorCookie == "blue"){
-        root.style.setProperty('--primary-color', "#1918D8");
-        root.style.setProperty('--primary-color-dark', "#009");
-        root.style.setProperty('--primary-color-light', "#B8D2FF");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-blue.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(80%) sepia(3%) saturate(5574%) hue-rotate(187deg) brightness(99%) contrast(100%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(66%) sepia(3%) saturate(5574%) hue-rotate(187deg) brightness(99%) contrast(100%)');
-    }
-    else if (primaryColorCookie == "green"){
-        root.style.setProperty('--primary-color', "#0FC80F");
-        root.style.setProperty('--primary-color-dark', "#080");
-        root.style.setProperty('--primary-color-light', "#80FF98");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-green.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(75%) sepia(69%) saturate(326%) hue-rotate(69deg) brightness(103%) contrast(101%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(65%) sepia(69%) saturate(326%) hue-rotate(69deg) brightness(103%) contrast(101%)');
-    }
-    else if (primaryColorCookie == "teal"){
-        root.style.setProperty('--primary-color', "#15A5A5");
-        root.style.setProperty('--primary-color-dark', "#066");
-        root.style.setProperty('--primary-color-light', "#80FFFF");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-teal.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(93%) sepia(26%) saturate(1930%) hue-rotate(149deg) brightness(101%) contrast(104%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(85%) sepia(26%) saturate(1930%) hue-rotate(149deg) brightness(101%) contrast(104%)');
-    }
-    else if (primaryColorCookie == "purple"){
-        root.style.setProperty('--primary-color', "#A716D5");
-        root.style.setProperty('--primary-color-dark', "#507");
-        root.style.setProperty('--primary-color-light', "#BCA0FF");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-purple.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(65%) sepia(37%) saturate(1399%) hue-rotate(209deg) brightness(104%) contrast(101%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(58%) sepia(37%) saturate(1399%) hue-rotate(209deg) brightness(104%) contrast(101%)');
-    }
-    else if (primaryColorCookie == "red"){
-        root.style.setProperty('--primary-color', "#D51615");
-        root.style.setProperty('--primary-color-dark', "#800");
-        root.style.setProperty('--primary-color-light', "#FF8768");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-red.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(77%) sepia(26%) saturate(4386%) hue-rotate(313deg) brightness(101%) contrast(101%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(21%) sepia(95%) saturate(3285%) hue-rotate(352deg) brightness(84%) contrast(99%)');
-    }
-    else if (primaryColorCookie == "yellow"){
-        root.style.setProperty('--primary-color', "#C5B505");
-        root.style.setProperty('--primary-color-dark', "#B0A004");
-        root.style.setProperty('--primary-color-light', "#F0F080");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-yellow.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(86%) sepia(45%) saturate(421%) hue-rotate(7deg) brightness(104%) contrast(91%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(75%) sepia(26%) saturate(2402%) hue-rotate(11deg) brightness(95%) contrast(93%)');
-    }
-    else if (primaryColorCookie == "orange"){
-        root.style.setProperty('--primary-color', "#F0A015");
-        root.style.setProperty('--primary-color-dark', "#B60");
-        root.style.setProperty('--primary-color-light', "#FFAA70");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-orange.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(69%) sepia(38%) saturate(627%) hue-rotate(333deg) brightness(101%) contrast(102%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(80%) sepia(26%) saturate(7208%) hue-rotate(356deg) brightness(101%) contrast(88%)');
-    }
-    else if (primaryColorCookie == "brown"){
-        root.style.setProperty('--primary-color', "#805515");
-        root.style.setProperty('--primary-color-dark', "#3A2505");
-        root.style.setProperty('--primary-color-light', "#A08A50");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-brown.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(57%) sepia(12%) saturate(1337%) hue-rotate(6deg) brightness(94%) contrast(90%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(32%) sepia(86%) saturate(421%) hue-rotate(357deg) brightness(90%) contrast(95%)');
-    }
-    else if(primaryColorCookie == "black"){
-        root.style.setProperty('--primary-color', "#686868");
-        root.style.setProperty('--primary-color-dark', "#444");
-        root.style.setProperty('--primary-color-light', "#E6E6E6");
-        root.style.setProperty('--bg-circuitry-img-url', 'url("../img/bg/bg-circuitry-black.png")');
-        root.style.setProperty('--nav-tab-hover-filter', 'invert(100%) sepia(0%) saturate(5932%) hue-rotate(317deg) brightness(116%) contrast(82%)');
-        root.style.setProperty('--social-logo-hover-filter', 'invert(68%) sepia(0%) saturate(16%) hue-rotate(268deg) brightness(78%) contrast(90%)');
+    const theme = themes[primaryColorCookie];
+    if (theme) {
+        root.style.setProperty('--primary-color', theme.color);
+        root.style.setProperty('--primary-color-dark', theme.dark);
+        root.style.setProperty('--primary-color-light', theme.light);
+        root.style.setProperty('--nav-tab-hover-filter', theme.navFilter);
+        root.style.setProperty('--social-logo-hover-filter', theme.socialFilter);
+        changeBackground(theme.bg);
     }
 
     if (darkModeCookie != null){
@@ -193,6 +214,23 @@ function applySettings(){
         }
     }
 }
+
+function changeBackground( newImageUrl, transitionDuration = 750) {
+    const bgLayer = document.querySelector('.bg-layer');
+    if (!bgLayer || !newImageUrl) return;
+
+    bgLayer.style.opacity = '0';
+
+    setTimeout(() => {
+        bgLayer.style.setProperty('--bg-container-img-url', `url("${newImageUrl}")`);
+        bgLayer.style.opacity = '1';
+    }, transitionDuration / 2);
+}
+
+
+
+
+
 
 
 
@@ -303,6 +341,11 @@ async function initializeSettingsForm(){
         updateSettingsForm();
     });
 }
+
+
+
+
+
 
 
 
