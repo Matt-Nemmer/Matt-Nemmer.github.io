@@ -6,6 +6,39 @@ Modified: 2025-06-05
 */
 
 /* General styling */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 8px 2px var(--primary-color-light);
+    }
+    50% {
+        box-shadow: 0 0 12px 4px var(--primary-color-dark);
+    }
+}
+
+@keyframes wipeStripe {
+    0% {
+        transform: translateX(-120%) skewX(-20deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(0%) skewX(-20deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(120%) skewX(-20deg);
+        opacity: 0;
+    }
+}
+
+@keyframes scroll-diagonal {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 640px 640px;
+  }
+}
+
 :root
 {
     --dark-font-color: #111;
@@ -41,10 +74,10 @@ hr{
 }
 hr.section-hr{
     opacity: 0.75;
-    border: none; 
-    height: 4px;
+  border: none;
+  height: 4px;
     background-color: var(--primary-color);
-    transition: background-color 0.75s ease-in-out;
+  transition: background-color 0.75s ease-in-out;
 }
 
 .text-shadow
@@ -58,30 +91,6 @@ hr.section-hr{
         5px 5px 9px rgba(0, 0, 0, 1),
         5px 5px 10px rgba(0, 0, 0, 0.8),
         5px 5px 12px rgba(0, 0, 0, 0.8);
-}
-
-@keyframes pulseGlow {
-    0%, 100% {
-        box-shadow: 0 0 8px 2px var(--primary-color-light);
-    }
-    50% {
-        box-shadow: 0 0 12px 4px var(--primary-color-dark);
-    }
-}
-
-@keyframes wipeStripe {
-    0% {
-        transform: translateX(-120%) skewX(-20deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(0%) skewX(-20deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(120%) skewX(-20deg);
-        opacity: 0;
-    }
 }
 
 .btn {
@@ -209,6 +218,7 @@ section.rounded{
     background-repeat: repeat;
     background-blend-mode: normal;
     transition: opacity 0.75s ease;
+    animation: scroll-diagonal 300s linear infinite;
     z-index: 0;
 }
 
