@@ -6,6 +6,8 @@
 
 // Global vars and constants
 const root = document.documentElement;
+
+let currentTheme = "blue";
 const themes = {
     blue: {
         color: "#1918D8",
@@ -81,10 +83,6 @@ const themes = {
     }
 };
 
- 
-
-
-
 
 
 
@@ -116,19 +114,34 @@ function putCookies(){
 
 
 
-
-
-
-
 // Applying settings
 function randInt( min, max ){
     return Math.floor( Math.random() * (max - min) ) + min;
 }
 
 function applySettings(){
+    // Apply dark-mode setting
     const darkModeCookie = getCookie("darkMode");
+    
+    if (darkModeCookie != null){
+        if (darkModeCookie == "darkMode"){
+            root.style.setProperty('--bg-light', "#101010");
+            root.style.setProperty('--bs-light-rgb', "16,16,16");
+            root.style.setProperty('--bs-body-color', "#fff");
+            root.style.setProperty('--social-logo-filter', "invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
+            root.style.setProperty('--dark-mode-invert-filter', "invert(100%)");
+        }
+        else{
+            root.style.setProperty('--bg-light', "#ededed");
+            root.style.setProperty('--bs-light-rgb', "237,237,237");
+            root.style.setProperty('--bs-body-color', "#000");
+            root.style.setProperty('--social-logo-filter', "invert(0%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
+            root.style.setProperty('--dark-mode-invert-filter', "invert(0%)");
+        }
+    }
+
+    // Apply font setting
     const fontTypeCookie = getCookie("fontType");
-    let primaryColorCookie = getCookie("primaryColor");
 
     if (fontTypeCookie != null){
         if (fontTypeCookie == "serif"){
@@ -148,46 +161,21 @@ function applySettings(){
         }
     }
 
+    // Apply color theme setting
+    const primaryColorCookie = getCookie("primaryColor");
+
+        // Determine which color to apply
     if( primaryColorCookie == null || primaryColorCookie == "random" )
     {
-        const numOfColors = 9;
-        const currentColorCode = randInt( 0, numOfColors );
-
-        switch( currentColorCode )
-        {
-            case 0:
-                primaryColorCookie = "blue";
-                break;
-            case 1:
-                primaryColorCookie = "green";
-                break;
-            case 2:
-                primaryColorCookie = "teal";
-                break;
-            case 3:
-                primaryColorCookie = "purple";
-                break;
-            case 4:
-                primaryColorCookie = "red";
-                break;
-            case 5:
-                primaryColorCookie = "orange";
-                break;
-            case 6:
-                primaryColorCookie = "yellow";
-                break;
-            case 7:
-                primaryColorCookie = "brown";
-                break;
-            case 8:
-                primaryColorCookie = "black";
-                break;
-            default:
-                primaryColorCookie = "blue";
-        }
+        const themeNames = Object.keys(themes).filter(name => name !== currentTheme);
+        currentTheme = themeNames[Math.floor(Math.random() * themeNames.length)];
+    }
+    else{
+        currentTheme = primaryColorCookie;
     }
 
-    const theme = themes[primaryColorCookie];
+        // Apply the selected color
+    const theme = themes[currentTheme];
     if (theme) {
         root.style.setProperty('--primary-color', theme.color);
         root.style.setProperty('--primary-color-dark', theme.dark);
@@ -195,23 +183,6 @@ function applySettings(){
         root.style.setProperty('--nav-tab-hover-filter', theme.navFilter);
         root.style.setProperty('--social-logo-hover-filter', theme.socialFilter);
         changeBackground(theme.bg);
-    }
-
-    if (darkModeCookie != null){
-        if (darkModeCookie == "darkMode"){
-            root.style.setProperty('--bg-light', "#101010");
-            root.style.setProperty('--bs-light-rgb', "16,16,16");
-            root.style.setProperty('--bs-body-color', "#fff");
-            root.style.setProperty('--social-logo-filter', "invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
-            root.style.setProperty('--dark-mode-invert-filter', "invert(100%)");
-        }
-        else{
-            root.style.setProperty('--bg-light', "#ededed");
-            root.style.setProperty('--bs-light-rgb', "237,237,237");
-            root.style.setProperty('--bs-body-color', "#000");
-            root.style.setProperty('--social-logo-filter', "invert(0%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
-            root.style.setProperty('--dark-mode-invert-filter', "invert(0%)");
-        }
     }
 }
 
@@ -231,20 +202,13 @@ function changeBackground( newImageUrl, transitionDuration = 750) {
 
 
 
-
-
-
-
-
 // Settings form
 function updateSettingsForm(){
-    var darkModeCookie = getCookie("darkMode");
-    var fontTypeCookie = getCookie("fontType");
-    var primaryColorCookie = getCookie("primaryColor");
-    var currentValuesString = "<strong>Current Values:</strong>";
-    currentValuesString += "<br>";
+    let currentValuesString = "<strong>Current Values:</strong><br>";
 
     // Set dark-mode selection
+    const darkModeCookie = getCookie("darkMode");
+
     currentValuesString += '<div class="ms-3">';
     if (darkModeCookie == null || darkModeCookie == "regularMode"){
         document.querySelector('input[value="regularMode"]').checked = true;
@@ -257,6 +221,8 @@ function updateSettingsForm(){
     currentValuesString += "</div>";
 
     // Set font-type selection
+    const fontTypeCookie = getCookie("fontType");
+
     currentValuesString += '<div class="ms-3">';
     if (fontTypeCookie == null || fontTypeCookie == "sansSerif"){
         document.querySelector('input[value="sansSerif"]').checked = true;
@@ -273,51 +239,24 @@ function updateSettingsForm(){
     currentValuesString += "</div>";
 
     // Set color selection
+    const validColors = ["random", ...Object.keys(themes)];
+
+    let primaryColorCookie = getCookie("primaryColor");
+    if (!validColors.includes(primaryColorCookie)) {
+        primaryColorCookie = "random";
+    }
+
     currentValuesString += '<div class="ms-3">';
-    if (primaryColorCookie == null || primaryColorCookie == "random"){
-        document.getElementById('primaryColor').value = "random";
-        currentValuesString += "Primary color: Random";
-    } 
-    else if (primaryColorCookie == "blue"){
-        document.getElementById('primaryColor').value = "blue";
-        currentValuesString += "Primary color: Blue";
-    } 
-    else if (primaryColorCookie == "green"){
-        document.getElementById('primaryColor').value = "green";
-        currentValuesString += "Primary color: Green";
-    } 
-    else if (primaryColorCookie == "teal"){
-        document.getElementById('primaryColor').value = "teal";
-        currentValuesString += "Primary color: Teal";
-    } 
-    else if (primaryColorCookie == "purple"){
-        document.getElementById('primaryColor').value = "purple";
-        currentValuesString += "Primary color: Purple";
-    } 
-    else if (primaryColorCookie == "red"){
-        document.getElementById('primaryColor').value = "red";
-        currentValuesString += "Primary color: Red";
-    } 
-    else if (primaryColorCookie == "yellow"){
-        document.getElementById('primaryColor').value = "yellow";
-        currentValuesString += "Primary color: Yellow";
-    } 
-    else if (primaryColorCookie == "orange"){
-        document.getElementById('primaryColor').value = "orange";
-        currentValuesString += "Primary color: Orange";
-    }
-    else if (primaryColorCookie == "brown"){
-        document.getElementById('primaryColor').value = "brown";
-        currentValuesString += "Primary color: Brown";
-    } 
-    else if (primaryColorCookie == "black"){
-        document.getElementById('primaryColor').value = "black";
-        currentValuesString += "Primary color: Black";
-    }
+    document.getElementById('primaryColor').value = primaryColorCookie;
+    currentValuesString += `Primary color: ${capitalize(primaryColorCookie)}`;
     currentValuesString += "</div>";
 
     // Update current-value string
     document.getElementById("current-values").innerHTML = currentValuesString;
+}
+
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 async function initializeSettingsForm(){
@@ -341,11 +280,6 @@ async function initializeSettingsForm(){
         updateSettingsForm();
     });
 }
-
-
-
-
-
 
 
 
