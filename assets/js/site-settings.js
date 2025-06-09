@@ -1,7 +1,7 @@
 /*
  Author: Matthew Nemmer
  Created: 2025-05-29
- Modified: 2025-06-05
+ Modified: 2025-06-08
  */
 
 // Global vars and constants
@@ -120,44 +120,24 @@ function randInt( min, max ){
 }
 
 function applySettings(){
-    // Apply dark-mode setting
-    const darkModeCookie = getCookie("darkMode");
-    
-    if (darkModeCookie != null){
-        if (darkModeCookie == "darkMode"){
-            root.style.setProperty('--bg-light', "#101010");
-            root.style.setProperty('--bs-light-rgb', "16,16,16");
-            root.style.setProperty('--bs-body-color', "#fff");
-            root.style.setProperty('--social-logo-filter', "invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
-            root.style.setProperty('--dark-mode-invert-filter', "invert(100%)");
-        }
-        else{
-            root.style.setProperty('--bg-light', "#ededed");
-            root.style.setProperty('--bs-light-rgb', "237,237,237");
-            root.style.setProperty('--bs-body-color', "#000");
-            root.style.setProperty('--social-logo-filter', "invert(0%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
-            root.style.setProperty('--dark-mode-invert-filter', "invert(0%)");
-        }
-    }
-
     // Apply font setting
     const fontTypeCookie = getCookie("fontType");
 
-    if (fontTypeCookie != null){
+    if(fontTypeCookie != null){
         if (fontTypeCookie == "serif"){
             root.style.setProperty('--bs-body-font-family',
-                    getComputedStyle(root)
-                    .getPropertyValue('--bs-font-serif'));
+              getComputedStyle(root)
+              .getPropertyValue('--bs-font-serif'));
         } 
         else if (fontTypeCookie == "sansSerif"){
             root.style.setProperty('--bs-body-font-family',
-                    getComputedStyle(root)
-                    .getPropertyValue('--bs-font-sans-serif'));
+              getComputedStyle(root)
+              .getPropertyValue('--bs-font-sans-serif'));
         } 
         else if (fontTypeCookie == "monospace"){
             root.style.setProperty('--bs-body-font-family',
-                    getComputedStyle(root)
-                    .getPropertyValue('--bs-font-monospace'));
+              getComputedStyle(root)
+              .getPropertyValue('--bs-font-monospace'));
         }
     }
 
@@ -165,8 +145,7 @@ function applySettings(){
     const primaryColorCookie = getCookie("primaryColor");
 
         // Determine which color to apply
-    if( primaryColorCookie == null || primaryColorCookie == "random" )
-    {
+    if( primaryColorCookie == null || primaryColorCookie == "random" ){
         const themeNames = Object.keys(themes).filter(name => name !== currentTheme);
         currentTheme = themeNames[Math.floor(Math.random() * themeNames.length)];
     }
@@ -176,13 +155,39 @@ function applySettings(){
 
         // Apply the selected color
     const theme = themes[currentTheme];
-    if (theme) {
+    if(theme){
         root.style.setProperty('--primary-color', theme.color);
         root.style.setProperty('--primary-color-dark', theme.dark);
         root.style.setProperty('--primary-color-light', theme.light);
         root.style.setProperty('--nav-tab-hover-filter', theme.navFilter);
         root.style.setProperty('--social-logo-hover-filter', theme.socialFilter);
         changeBackground(theme.bg);
+    }
+
+    // Apply dark-mode setting
+    const darkModeCookie = getCookie("darkMode");
+    
+    if( darkModeCookie !== null && darkModeCookie === "darkMode"){
+        root.style.setProperty('--bg-light', "#101010");
+        root.style.setProperty('--bs-light-rgb', "16,16,16");
+        root.style.setProperty('--bs-body-color', "#fff");
+        root.style.setProperty('--social-logo-filter', "invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
+        root.style.setProperty('--dark-mode-invert-filter', "invert(100%)");
+        root.style.setProperty('--link-color', theme.light);
+        root.style.setProperty('--link-visited-color', theme.light);
+        root.style.setProperty('--link-hover-color', theme.color);
+        root.style.setProperty('--link-active-color', theme.light);
+    }
+    else{
+        root.style.setProperty('--bg-light', "#ededed");
+        root.style.setProperty('--bs-light-rgb', "237,237,237");
+        root.style.setProperty('--bs-body-color', "#000");
+        root.style.setProperty('--social-logo-filter', "invert(0%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
+        root.style.setProperty('--dark-mode-invert-filter', "invert(0%)");
+        root.style.setProperty('--link-color', theme.dark);
+        root.style.setProperty('--link-visited-color', theme.dark);
+        root.style.setProperty('--link-hover-color', theme.color);
+        root.style.setProperty('--link-active-color', theme.dark);
     }
 }
 
@@ -209,7 +214,7 @@ function updateSettingsForm(){
     // Set dark-mode selection
     const darkModeCookie = getCookie("darkMode");
 
-    currentValuesString += '<div class="ms-3">';
+    currentValuesString += '<div class="ms-4">';
     if (darkModeCookie == null || darkModeCookie == "regularMode"){
         document.querySelector('input[value="regularMode"]').checked = true;
         currentValuesString += "Dark mode: OFF";
@@ -223,7 +228,7 @@ function updateSettingsForm(){
     // Set font-type selection
     const fontTypeCookie = getCookie("fontType");
 
-    currentValuesString += '<div class="ms-3">';
+    currentValuesString += '<div class="ms-4">';
     if (fontTypeCookie == null || fontTypeCookie == "sansSerif"){
         document.querySelector('input[value="sansSerif"]').checked = true;
         currentValuesString += "Font type: Sans-Serif";
@@ -246,7 +251,7 @@ function updateSettingsForm(){
         primaryColorCookie = "random";
     }
 
-    currentValuesString += '<div class="ms-3">';
+    currentValuesString += '<div class="ms-4">';
     document.getElementById('primaryColor').value = primaryColorCookie;
     currentValuesString += `Primary color: ${capitalize(primaryColorCookie)}`;
     currentValuesString += "</div>";
@@ -287,3 +292,6 @@ async function initializeSettingsForm(){
 
 // Apply site preferences
 applySettings();
+window.addEventListener('DOMContentLoaded', () => {
+    applySettings();
+});
