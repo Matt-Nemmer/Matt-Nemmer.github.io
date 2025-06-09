@@ -239,7 +239,7 @@ section.rounded{
     background-repeat: repeat;
     background-blend-mode: normal;
     transition: opacity 0.75s ease;
-    animation: scroll-diagonal 300s linear infinite;
+    animation: scroll-diagonal 120s linear infinite;
     z-index: 0;
 }
 
