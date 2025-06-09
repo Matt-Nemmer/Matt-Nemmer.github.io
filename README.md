@@ -13,4 +13,4 @@ The site uses cookies for storing settings and the Bootstrap framework for styli
 Learn more about me here:
 [matt-nemmer.github.io](https://matt-nemmer.github.io/)
 
-![Matt Nemmer Logo](img/matt-logo-light.svg)
+![Matt Nemmer Logo](assets/img/matt-logo-light.svg)

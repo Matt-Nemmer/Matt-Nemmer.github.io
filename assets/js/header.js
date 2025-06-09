@@ -5,7 +5,7 @@
 function updateActiveSection() {
     let closestSection = null;
     let closestDistance = Infinity;
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('main section.nav-target');
 const navLinks = document.querySelectorAll('header .nav-link');
 
     const triggerY = window.innerHeight * 0.4;
