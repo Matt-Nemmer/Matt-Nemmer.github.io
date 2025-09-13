@@ -6,7 +6,7 @@ Modified: 2025-06-08
 */
 
 /* General styling */
-@keyframes pulseGlow {
+@keyframes pulseGlow{
     0%, 100% {
         box-shadow: 0 0 8px 2px var(--primary-color-light);
     }
@@ -15,7 +15,7 @@ Modified: 2025-06-08
     }
 }
 
-@keyframes wipeStripe {
+@keyframes wipeStripe{
     0% {
         transform: translateX(-120%) skewX(-20deg);
         opacity: 1;
@@ -30,7 +30,7 @@ Modified: 2025-06-08
     }
 }
 
-@keyframes scroll-diagonal {
+@keyframes scroll-diagonal{
     from {
         background-position: 0 0;
     }
@@ -46,7 +46,7 @@ Modified: 2025-06-08
     --primary-color-dark: #009;
 
     --bg-light: #fff;
-    --bg-container-img-url: url("");
+    --bg-container-img-url: url("../img/bg/bg-circuitry-blue.png");
 
     --nav-tab-hover-filter: var(--blue-filter);
     --social-logo-hover-filter: var(--blue-filter);
@@ -75,12 +75,47 @@ Modified: 2025-06-08
     --black-hue-up-filter: invert(0%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%);
     --dim-hue-down-filter: invert(35%) sepia(23%) saturate(1173%) hue-rotate(0deg) brightness(157%) contrast(101%);
 
+    --color-transition-duration: 0.75s;
 }
-::selection {
+
+/*
+@media (prefers-color-scheme: dark){
+    :root{
+        --bg-light: #0e0e0e !important;
+        --bs-light-rgb: 16,16,16 !important;
+        --bs-body-color: #fff !important;
+        --social-logo-filter: invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%);
+        --dark-mode-invert-filter: invert(100%);
+        --link-color: var(--primary-color-light);
+        --link-visited-color: var(--primary-color-light);
+        --link-hover-color: var(--primary-color);
+        --link-active-color: var(--primary-color-light);
+    }
+}
+
+@media (prefers-color-scheme: light){
+    :root{
+        --bg-light: #ededed !important;
+        --bs-light-rgb: 237,237,237 !important;
+        --bs-body-color: #000 !important;
+        --social-logo-filter: invert(0%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%);
+        --dark-mode-invert-filter: invert(0%);
+        --link-color: var(--primary-color-dark);
+        --link-visited-color: var(--primary-color-dark);
+        --link-hover-color: var(--primary-color);
+        --link-active-color: var(--primary-color-dark);
+    }
+}
+*/
+
+
+
+
+::selection{
     background-color: var(--primary-color-light);
     color: var(--dark-font-color);
 }
-html {
+html{
   scroll-padding-top: 70px;
 }
 hr{
@@ -91,12 +126,12 @@ hr.section-hr{
     border: none;
     height: 4px;
     background-color: var(--primary-color);
-    transition: background-color 0.75s ease-in-out;
+    transition: background-color var(--color-transition-duration) ease-in-out;
 }
 
 .link{
     color: var(--link-color);
-    transition: color 0.75s ease-in-out;
+    transition: color var(--color-transition-duration) ease-in-out;
 }
 .link:link{
     color: var(--link-color);
@@ -131,10 +166,10 @@ hr.section-hr{
     overflow: hidden;
     z-index: 0;
     transition:
-      box-shadow 0.75s ease-in-out,
-      border-color 0.75s ease,
-      color 0.75s ease,
-      background-color 0.75s ease;
+      box-shadow var(--color-transition-duration) ease-in-out,
+      border-color var(--color-transition-duration) ease,
+      color var(--color-transition-duration) ease,
+      background-color var(--color-transition-duration) ease;
 }
 
 .btn:hover, .btn:focus{
@@ -159,12 +194,15 @@ hr.section-hr{
 }
 
 .btn:hover::before, .btn:focus::before{
-    animation: wipeStripe 0.75s ease-out forwards;
+    animation: wipeStripe var(--color-transition-duration) ease-out forwards;
 }
 
 section.rounded{
     border-color: var(--primary-color);
-    transition: border-color .75s ease-in-out;
+    transition: 
+        border-color var(--color-transition-duration) ease-in-out,
+        background-color var(--color-transition-duration) ease-in-out,
+        color var(--color-transition-duration) ease-in-out;
 }
 
 
@@ -194,7 +232,7 @@ section.rounded{
 .nav-link .img-icon{
     max-height: 0px;
     filter: var(--dim-hue-down-filter);
-    transition: max-height 1s ease-in-out, filter .75s ease-in-out,
+    transition: max-height 1s ease-in-out, filter var(--color-transition-duration) ease-in-out,
         background-color .15s ease-in-out, border-color .15s ease-in-out
 }
 .nav-link.active .img-icon{
@@ -217,7 +255,7 @@ section.rounded{
 
 /* Background and shadow styling */
 .bg-light{
-    background-color: var(--bg-light)
+    background-color: var(--bg-light);
 }
 
 /* Background for card-sections */
@@ -238,7 +276,7 @@ section.rounded{
         var(--bg-container-img-url);
     background-repeat: repeat;
     background-blend-mode: normal;
-    transition: opacity 0.75s ease;
+    transition: opacity var(--color-transition-duration) ease;
     animation: scroll-diagonal 120s linear infinite;
     z-index: 0;
 }
@@ -390,15 +428,15 @@ img, .svg{
     height: auto;
     max-height: calc(64px + 2rem);
     filter: var(--social-logo-filter);
-    transition: filter .75s ease-in-out
+    transition: filter var(--color-transition-duration) ease-in-out;
 }
 .social-logo:hover, .social-logo:focus, 
   a:hover .social-logo, a:focus .social-logo{
     filter: var(--social-logo-hover-filter);
-    transition: filter .15s ease-in-out
+    transition: filter .15s ease-in-out;
 }
 .img-dark-mode-invert{
-    filter: var(--dark-mode-invert-filter)
+    filter: var(--dark-mode-invert-filter);
 }
 .vignette{
     width: 100%;
@@ -433,6 +471,11 @@ img, .svg{
 
 #settings-form button{
     width: fit-content;
+    transition:
+      box-shadow var(--color-transition-duration) ease-in-out,
+      border-color var(--color-transition-duration) ease,
+      color var(--color-transition-duration) ease,
+      background-color var(--color-transition-duration) ease;
 }
 
 #settings-form select {
@@ -442,10 +485,10 @@ img, .svg{
     background-color: white;
     cursor: pointer;
     transition:
-      box-shadow 0.75s ease-in-out,
-      border-color 0.75s ease,
-      color 0.75s ease,
-      background-color 0.75s ease;
+      box-shadow var(--color-transition-duration) ease-in-out,
+      border-color var(--color-transition-duration) ease,
+      color var(--color-transition-duration) ease,
+      background-color var(--color-transition-duration) ease;
 }
 
 #settings-form select:hover, #settings-form select:focus {
@@ -476,7 +519,11 @@ img, .svg{
     box-shadow: 0 0 8px 2px var(--primary-color-light);
     transition:
       width 0.4s ease,
-      opacity 0.2s ease;
+      opacity 0.2s ease,
+      box-shadow var(--color-transition-duration) ease,
+      border-color var(--color-transition-duration) ease,
+      color var(--color-transition-duration) ease,
+      background-color var(--color-transition-duration) ease;
     pointer-events: none;
     z-index: 0;
 }
@@ -488,5 +535,5 @@ img, .svg{
 }
 
 #current-colors span {
-    transition: background-color 0.75s ease-in-out;
+    transition: background-color var(--color-transition-duration) ease-in-out;
 }

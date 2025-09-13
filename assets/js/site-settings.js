@@ -168,8 +168,8 @@ function applySettings(){
     const darkModeCookie = getCookie("darkMode");
     
     if( darkModeCookie !== null && darkModeCookie === "darkMode"){
-        root.style.setProperty('--bg-light', "#101010");
-        root.style.setProperty('--bs-light-rgb', "16,16,16");
+        root.style.setProperty('--bg-light', "#0e0e0e");
+        root.style.setProperty('--bs-light-rgb', "14,14,14");
         root.style.setProperty('--bs-body-color', "#fff");
         root.style.setProperty('--social-logo-filter', "invert(100%) sepia(23%) saturate(1173%) hue-rotate(330deg) brightness(157%) contrast(101%)");
         root.style.setProperty('--dark-mode-invert-filter', "invert(100%)");
